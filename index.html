@@ -49,7 +49,7 @@
 
       <div class="row" class='ng-cloak' ng-show='hasResults'>
         <div class='col-xs-12 col-sm-5 col-md-4' ng-show='hasTo'>
-          <h4>Redditors who read <a href='#' ng-href='//www.reddit.com/r/{{searchInput}}' target='_blank'>/r/{{searchInput}}</a> also read:</h4>
+          <h4>Redditors who read <a href='#' ng-href='//www.reddit.com/r/{{lastSearch}}' target='_blank'>/r/{{lastSearch}}</a> also read:</h4>
           <div class="list-group">
             <div ng-repeat='sub in to' class='row list-group-item'>
               <a href='#' ng-href='//www.reddit.com/r/{{sub}}' target="_blank" class='col-md-10 col-sm-10 col-xs-10'>
@@ -64,7 +64,7 @@
         </div>
 
         <div class='col-xs-12 col-sm-5 col-md-4' ng-class='{ "col-sm-offset-1": hasTo, "col-md-offset-1": hasTo}' ng-show='hasFrom'>
-          <h4>Redditors who read these subreddits also read <a href='#' ng-href='//www.reddit.com/r/{{searchInput}}' target='_blank'>/r/{{searchInput}}</a>:</h4>
+          <h4>Redditors who read these subreddits also read <a href='#' ng-href='//www.reddit.com/r/{{lastSearch}}' target='_blank'>/r/{{lastSearch}}</a>:</h4>
           <div ng-repeat='sub in from' class='row list-group-item'>
             <a href='#' ng-href='//www.reddit.com/r/{{sub}}' target="_blank" class='col-md-10 col-sm-10 col-xs-10'>
               {{sub}}
@@ -76,7 +76,12 @@
           </div>
         </div>
       </div>
+
+      <div class="row" class='ng-cloak' ng-show='showNoResults'>
+          <h4>Subreddit <a href='#' ng-href='//www.reddit.com/r/{{searchInput}}' target='_blank'>/r/{{searchInput}}</a> is not found in the recommendation database.</h4>
+      </div>
     </div>
+
     <div class='share' ng-controller='ShareController'>
       <p><a href="https://github.com/anvaka/redsim">About</a></p>
       <p><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fanvaka%2Fredsim" ng-click='share("twitter", $event)'>share to twitter</a></p>

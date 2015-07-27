@@ -29670,6 +29670,7 @@ function AppController($scope, $http, $q, $location) {
   var client = createClient($http, $q);
   client.on('ready', setReady);
 
+  $scope.showNoResults = false;
   $scope.recommendationsReady = false;
   $scope.getTypeahead = function (query) {
     return client.searchSubreddit(query);
@@ -29693,6 +29694,8 @@ function AppController($scope, $http, $q, $location) {
     var hasFrom = $scope.hasFrom = $scope.from && $scope.from.length > 0;
     var hasTo = $scope.hasTo = $scope.to && $scope.to.length > 0;
     $scope.hasResults = hasFrom || hasTo;
+    $scope.showNoResults = !$scope.hasResults && $scope.searchInput;
+    $scope.lastSearch = $scope.searchInput;
   }
 
   function setReady() {
