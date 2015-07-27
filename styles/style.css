@@ -6793,6 +6793,7 @@ button.close {
     top: inherit;
     padding-left: 19px;
     background-color: black;
+    position: fixed;
   }
   .share p {
     display: inline-block;
